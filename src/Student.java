@@ -2,39 +2,34 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class Student{
-    private String email;
-    private List<String> interests;
-    public Student match;
+/**
+ * Data structure to represent each student. Includes identifier and interests.
+ * @author Eleanor Harris (harri27e@mtholyoke.edu)
+ * */
 
-    // Public constructor.
-    public Student(String email, List<String> interests) {
-        this.email = email;
-        this.interests = interests;
-    }
+public class Student {
+  private String email;
+  private List<String> interests;
 
-    // Interest getter method.
-    public List<String> getInterests(){
-        return interests;
-    }
+  /** Public constructor. */
+  public Student(String email, List<String> interests) {
+    this.email = email;
+    this.interests = interests;
+  }
 
-    // Gets a match. If no match, returns null.
-    public Student getMatch() { return match; }
+  /** Getter method to access interest list. */
+  public List<String> getInterests() {
+    return interests;
+  }
 
-    // Assigns a match.
-    public void setMatch(Student s) {
-        this.match = s;
-        s.match = this;
-    }
+  /** Returns true if the current Student has no common interests with a given Student s. */
+  public boolean isMatch(Student s) {
+    return Collections.disjoint(s.getInterests(), interests);
+  }
 
-    // Returns true if the Student has no common interests with a given Student s.
-    public boolean isMatch(Student s) {
-        return Collections.disjoint(s.getInterests(), interests);
-    }
-
-
-    @Override
-    public String toString() {
-        return email;
-    }
+  /** Returns email to identify Student, since email is a unique identifier in MHC system. */
+  @Override
+  public String toString() {
+    return email;
+  }
 }

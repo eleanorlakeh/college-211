@@ -37,7 +37,7 @@ public final class UndirectedGraph<T> implements Iterable<T> {
     /**
      * Given a node, returns whether that node exists in the graph.
      *
-     * @param The node in question.
+     * @param Node in question.
      * @return Whether that node eixsts in the graph.
      */
     public boolean nodeExists(T node) {
