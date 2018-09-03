@@ -27,14 +27,15 @@ public class Utils {
 
       String dataRow = CSVFile.readLine(); // Read first line
       
-
       while (dataRow != null) {
         if (counter != 0) {
+        	
+        	  //Split around commas, but ignore commas within double quotes
           String[] dataArray = dataRow.split(",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
           String email = dataArray[1];
-          String discipline = dataArray[2];
-          List<String> processes = makeListFromString(dataArray[3]);
-          List<String> interests = makeListFromString(dataArray[4]);
+          String discipline = dataArray[3];
+          List<String> processes = makeListFromString(dataArray[4]);
+          List<String> interests = makeListFromString(dataArray[5]);
           students.add(new Student(email, discipline, processes, interests)); // Add a student with the parsed data.
         }
         dataRow = CSVFile.readLine(); // Read next line of data.
